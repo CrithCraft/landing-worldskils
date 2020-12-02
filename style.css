@@ -1,0 +1,436 @@
+html {
+  height: 100%;
+}
+
+* {
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  display: grid;
+  grid-template: 50px 240px 1fr 1fr / 1fr;
+  height: 100%;
+  margin: 0px;
+}
+
+header {
+  grid-area: 1/1/2/2;
+  background-color: #0f3057;
+  display: flex;
+  justify-content: space-between;
+  /* padding-left: 30px; */
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  z-index: 9999;
+  padding-left: 20px;
+}
+
+/* Левая часть шапки */
+header .left {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  color: white;
+  align-items: center;
+  list-style-type: none;
+}
+
+/* Пункт навигации шапки */
+header .left li {
+  margin-left: 20px;
+  font-size: 0.9em;
+  opacity: 0.8;
+  transition: all 0.5s;
+}
+
+header .left li:hover {
+  opacity: 1;
+}
+
+/* Логотип шапки */
+header .left .logo {
+  background-image: url(images/logo.png);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 110px;
+  height: 100%;
+}
+
+/* Правая часть шапки */
+header .right {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+/* Номер в шапке */
+header .number {
+  color: white;
+  margin-right: 20px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* Кнопка вызова в шапке */
+header .buy-call {
+  all: unset;
+  width: 32px;
+  height: 32px;
+  background-image: url(images/call.jpg);
+  background-size: 100%;
+  background-position: center;
+  margin-right: 20px;
+  filter: grayscale();
+}
+
+aside {
+  grid-area: 2/1/3/2;
+  background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(images/aside.jpg);
+  background-size: 100%;
+  background-position: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Слайдер */
+aside .slider {
+  display: flex;
+  flex-wrap: nowrap;  
+  position: relative; 
+  width: 400%;
+  height: 100%;
+  animation: 10s slidy infinite;
+}
+
+/* Элемент слайдера */
+aside .slider .block {
+  width: 25%;
+  margin: auto 0px;
+  display: inline-block;  
+  position: inherit;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.1em;
+  color: white;
+  padding: 0px 300px;
+  line-height: 1.6;
+}
+
+article {
+  grid-area: 3/1/4/2;
+  background-color: whitesmoke;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+footer {
+  grid-area: 4/1/5/2;
+  background-color: #00587a;
+  display: flex;
+}
+
+/* Поле о товарах */
+.items-label {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* Элемент поля о товарах */
+.items-label .item-block {
+  display: block;
+  width: 100%;
+  margin: 40px;
+  background-color: white;
+  box-shadow: 0 0 30px rgba(0,0,0,0.05);
+  transition: all 0.5s;
+}
+
+.items-label .item-block:hover {
+  box-shadow: 0 0 30px rgba(0,0,0,0.15);
+}
+
+/* Изображенеи элемента поля о товарах */
+.items-label .item-block .preview {
+  width: 100%;
+  padding-top: 100%;
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+}
+
+/* Заголовок элемента поля о товарах */
+.items-label .item-block h3 {
+  margin: 18px;
+  text-align: center;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Текст элемента поля о товарах */
+.items-label .item-block p {
+  margin: 32px;
+  margin-top: 0px;
+  text-align: justify;
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+/* Поле товаров в магазине */
+.shop-label {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0px 40px;
+  justify-content: center;
+}
+
+/* Элемент поля товаров в магазине */
+.shop-label .item-block {
+  display: block;
+  width: 200px;
+  margin: 20px;
+  background-color: white;
+  box-shadow: 0 0 30px rgba(0,0,0,0.05);
+  transition: all 0.5s;
+}
+
+.shop-label .item-block:hover {
+  box-shadow: 0 0 30px rgba(0,0,0,0.15);
+}
+
+/* Изображене элемента поля товаров в магазине */
+.shop-label .item-block .preview {
+  width: 100%;
+  padding-top: 100%;
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+}
+
+/* Заголовок элемента поля товаров в магазине */
+.shop-label .item-block h3 {
+  margin: 18px;
+  text-align: center;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Цена элемента поля товаров в магазине */
+.shop-label .cost {
+  margin: 18px;
+  font-size: 0.85em;
+  text-align: center;
+}
+
+/* Тип элемента поля товаров в магазине */
+.shop-label .view {
+  margin: 18px;
+  font-size: 0.85em;
+  text-align: center;
+  color: gray;
+}
+
+/* Заголовок блока */
+h1 {
+  width: 100%;
+  border-bottom: solid 1px gray;
+  border-radius: 1px;
+  margin: 10px 50px;
+  padding: 10px 0px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Поле фильтров */
+.param-label {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 20px 50px;
+}
+
+/* Элемент поля фильтров */
+.param {
+  margin: 0px 100%;
+    padding: 10px 20px;
+    color: gray;
+}
+
+.param:hover {
+  color: black;
+}
+
+/* Поле сотрудников */
+.work-label {
+  margin: 10px 50px;
+}
+
+/* Текствой элемент поля сотрудников */
+.work-label p {
+  margin-bottom: 20px;
+}
+
+/* Поле брендов */
+.brand-label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 150px;
+}
+
+/* Элемент-изображение поля брендов */
+.brand-label img {
+  height: 40px;
+  margin: 20px;
+  filter: grayscale();
+  border-radius: 10px;
+}
+
+/* Поле совета */
+.help-label {
+  display: block;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 50px;
+}
+
+/* Изображение поля советов */
+.help-label img {
+  width: 100%;
+}
+
+/* Текст поля советов */
+.help-label p {
+  margin: 0px;
+  margin-top: 16px;
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 1.2em;
+  opacity: 0.7;
+}
+
+/* Информационое поле компании */
+.info-label {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 20px 50px;
+
+}
+
+/* Элемент поля компании */
+.info-label div {
+  width: 100%;
+  margin: 20px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: gainsboro;
+}
+
+/* Форма информационого поля компани */
+.info-label form {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Поле формы информационого поля компани */
+.info-label input {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 0px;
+  border-radius: 2px;
+  height:30px;
+  padding: 0px 10px;
+}
+
+/* Кнопка формы информационого поля компани */
+.info-label input[type=submit] {
+  background: none;
+  background-image: url(images/subscribe.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 40px;
+  background-position: center;
+  filter: grayscale();
+  opacity: 0.9;
+}
+
+/* Поле кнопки для возврата */
+.top-layer {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Кнопка возврата */
+.back-button {
+  background-image: url(images/back.png);
+  background-size: 100%;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  margin-top: 20px;
+  filter: grayscale();
+  transform: rotate(90deg);
+  opacity: 0.5;
+}
+
+/* Анимация слайдера */
+@keyframes slidy {
+  0% { left: 0%; }
+  20% { left: 0%; }
+  25% { left: -100%; }
+  45% { left: -100%; }
+  50% { left: -200%; }
+  70% { left: -200%; }
+  75% { left: -300%; }
+  95% { left: -300%; }
+  100% { left: -400%; }
+}
+
+/* Выводим скутер, если выбран */
+input[type="radio"][id="scuter"]:checked ~ .sigvei, input[type="radio"][id="scuter"]:checked ~ .samocat {
+  width:0;
+  height:0;
+  padding:0;
+  margin:0;
+  opacity:0;
+  overflow: hidden;
+}
+
+/* Выводим сигвей, если выбран */
+input[type="radio"][id="sigvei"]:checked ~ .scuter, input[type="radio"][id="sigvei"]:checked ~ .samocat {
+  width:0;
+  height:0;
+  padding:0;
+  margin:0;
+  opacity:0;
+  overflow: hidden;
+}
+
+/* Выводим самокат, если выбран. */
+input[type="radio"][id="samocat"]:checked ~ .scuter, input[type="radio"][id="samocat"]:checked ~ .sigvei {
+  width:0;
+  height:0;
+  padding:0;
+  margin:0;
+  opacity:0;
+  overflow: hidden;
+}
+
+/* Пункт radio фильтра */
+input[type="radio"] {
+  display:none;
+}
+
+
